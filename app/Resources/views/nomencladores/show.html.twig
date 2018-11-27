@@ -1,0 +1,80 @@
+{% extends 'admin.html.twig' %}
+{% block page_title %}{{ ('nomenclator.' ~ entityType ~ '.show')|trans }}{% endblock %}
+{% block title %}{{ ('nomenclator.' ~ entityType ~ '.show')|trans }}{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-body">
+                    <div class="tabbable">
+                        <div class="form-body">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {%- if entityType == 'categoria_docente' or entityType == 'cargo' -%}
+                                    <th>{{ ('nomenclator.' ~ entityType ~ '.description')|trans }}</th>
+                                    <td>{{ entity.descripcion|default('-') }}</td>
+                                {% endif %}
+                                {%- if entityType == 'tipo_servicio' -%}
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombre|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.paymentInCash')|trans }}</th>
+                                        <td>{{ entity.pagoEnEfectivo|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.contract')|trans }}</th>
+                                        <td>{{ entity.llevaContrato|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.priceCUP')|trans }}</th>
+                                        <td>{{ entity.precioCUP|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.priceCUC')|trans }}</th>
+                                        <td>{{ entity.precioCUC|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
+                                {%- if entityType == 'tipo_usuario' -%}
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.kind')|trans }}</th>
+                                        <td>{{ entity.tipoUsuario|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
+                                {%- if entityType == 'vinculo' -%}
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.ref')|trans }}</th>
+                                        <td>{{ entity.vinculo|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombre|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12" id="button_actions">
+                            <a class="btn btn-primary btn-sm"
+                               href="{{ path(entityType ~ '_edit', { 'id': entity.id }) }}">
+                                <i class="fa fa-edit"></i> {{ 'actions.edit'|trans }}</a>
+                            <a class="btn btn-default btn-sm" href="{{ path(entityType ~ '_index') }}">
+                                <i class="fa fa-chevron-left"></i> {{ 'actions.list'|trans }}</a>
+                            <a data-id="{{ entity.id }}" data-action="{{ entityType }}_delete"
+                               class="btn btn-danger btn-sm delete-selection" href="{{ path(entityType ~ '_delete', { 'id': entity.id }) }}">
+                                <i class="fa fa-trash"></i> {{ 'actions.delete'|trans }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

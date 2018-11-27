@@ -1,0 +1,8 @@
+{% extends 'admin.html.twig' %}
+{% block page_title %}{{ ('entidades.' ~ entityType ~ '.list')|trans }}{% endblock %}
+{% block title %}{{ ('entidades.' ~ entityType ~ '.list')|trans }}{% endblock %}
+{% block body %}
+    {{form_start(form)}}
+    {{form_widget(form)}}
+    {{form_end(form)}}
+{% endblock %}

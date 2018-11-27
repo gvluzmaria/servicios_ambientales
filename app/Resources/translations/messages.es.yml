@@ -1,0 +1,193 @@
+# Sistema
+servicios_ambientales: servicios_ambientales
+system:
+  title: servicios_ambientales
+  icon: fa fa-tint
+  separator:
+    one: Sistema
+
+# Globales
+home:
+  title: Inicio
+  alt: Inicio
+  label: Inicio
+  page:
+    title: Página Principal
+    alt: Página Principal
+flash:
+  close: Cerrar
+header:
+  action: Acción
+layout:
+  profile: Perfil
+workDays:
+  m: Lunes
+  t: Martes
+  w: Miércoles
+  th: Jueves
+  f: Viernes
+  s: Sábado
+  su: Domingo
+
+# Mensajes
+'Oh snap!': '¡Oh cielos!'
+'Warning!': '¡Alerta!'
+'Heads up!': '¡Atención!'
+'Well done!': '¡Bien hecho!'
+delete.header: '¡Atención!'
+delete.message: Está a punto de eliminar una instancia de "type" con valor "name". ¿Desea proseguir?
+no_elements: No existen elementos que mostrar.
+no_results: No se encontraron resultados.
+unexpected_error: No es posible completar la operación, ha ocurrido un error inesperado. Consulte al administrador del sistema.
+are_you_sure_question: ¿Está seguro que desea continuar?
+created.success: Se han adicionado los datos de forma satisfactoria.
+created.error: Ha ocurrido un error al intentar adicionar los datos.
+updated.success: Se han modificado los datos de forma satisfactoria.
+updated.error: Ha ocurrido un error al intentar modificar los datos.
+deleted.success: Se han eliminado los datos de forma satisfactoria.
+delete.error.%key%: Ha ocurrido un error intentando eliminar los datos en "key".
+upload.maxsize: No se puede importar, el archivo excede los 2 MB.
+invalid.extensionfile: No se puede importar, extensión de archivo inválida.
+data:
+  create: Inserte los datos correspondientes
+  edit: Edite los datos correspondientes
+
+# Usuario
+user:
+  title: '[0,1] Usuario|[2,Inf] Usuarios'
+  alt: Usuario
+  label: Usuario
+  list: Listado de Usuarios
+  create: Adicionar Usuario
+  show: Ver Datos de Usuario
+  edit: Modificar Usuario
+  delete: Eliminar Usuario
+  name: Nombre
+  username: Usuario
+  email: Correo
+  lastLogin: Última autenticación
+  enabled:
+    question: ¿Activo?
+    yes: Sí
+    no: No
+  logout: Cerrar sesión
+  login: Iniciar sesión
+  profile: Mi perfil
+  role: Rol(es)
+
+# Acciones
+actions:
+  label: Acciones
+  new: Adicionar
+  add: Adicionar
+  edit: Modificar
+  delete: Eliminar
+  show: Ver
+  search: Buscar
+  filter: Filtrar
+  restore: Restaurar
+  restart: Restaurar
+  hide: Ocultar
+  goback: Volver
+  list: Listado
+  confirm: Confirmar
+  cancel: Cancelar
+  up: Subir
+  down: Descargar
+  details: Detalles
+
+# Nomenclador
+nomenclator:
+  cargo:
+    title: '[0,1] Cargo|[2, Inf] Cargos'
+    label: Cargo
+    alt: Cargo
+    list: Listado de Cargos
+    create: Adicionar Cargo
+    edit: Modificar Cargo
+    delete: Eliminar Cargo
+    show: Ver Datos de Cargo
+    description: Descripción
+    save: Guardar
+  categoria_docente:
+    title: '[0,1] Categoría Docente|[2, Inf] Categorías Docentes'
+    label: Categoría Docente
+    alt: Categoría Docente
+    list: Listado de Categorías Docentes
+    create: Adicionar Categoría Docente
+    edit: Modificar Categoría Docente
+    delete: Eliminar Categoría Docente
+    show: Ver Datos de Categoría Docente
+    description: Descripción
+    save: Guardar
+  categoria_cientifica:
+    title: '[0,1] Categoría Científica|[2, Inf] Categorías Científicas'
+    label: Categoría Científica
+    alt: Categoría Científica
+    list: Listado de Categorías Científicas
+    create: Adicionar Categoría Científica
+    edit: Modificar Categoría Científica
+    delete: Eliminar Categoría Científica
+    show: Ver Datos de Categoría Científica
+    description: Descripción
+    save: Guardar
+  tipo_servicio:
+    title: '[0,1] Tipo de Servicio|[2, Inf] Tipos de Servicio'
+    label: Tipo de Servicio
+    alt: Tipo de Servicio
+    list: Listado de Tipos de Servicio
+    create: Adicionar Tipo de Servicio
+    edit: Modificar Tipo de Servicio
+    delete: Eliminar Tipo de Servicio
+    show: Ver Datos de Tipo de Servicio
+    name: Nombre
+    paymentInCash: Pago En Efectivo
+    contract: Lleva Contrato
+    priceCUP: Precio en CUP
+    priceCUC: Precio en CUC
+    save: Guardar
+  tipo_usuario:
+    title: '[0,1] Tipo de Usuario|[2, Inf] Tipos de Usuario'
+    label: Tipo de Usuario
+    alt: Tipo de Usuario
+    list: Listado de Tipos de Usuario
+    create: Adicionar Tipo de Usuario
+    edit: Modificar Tipo de Usuario
+    delete: Eliminar Tipo de Usuario
+    show: Ver Datos de Tipo de Usuario
+    kind: Tipo de Usuario
+    save: Guardar
+  vinculo:
+    title: '[0,1] Vínculo|[2, Inf] Vínculos'
+    label: Vínculo
+    alt: Vínculo
+    list: Listado de Vínculos
+    create: Adicionar Vínculo
+    edit: Modificar Vínculo
+    delete: Eliminar Vínculo
+    show: Ver Datos de Vínculo
+    ref: Vínculo
+    name: Nombre
+    save: Guardar
+
+#Otras Entidades
+entidades:
+  capital_humano:
+    title: '[0,1] Trabajador|[2, Inf] Trabajadores'
+    label: Trabajador
+    alt: Trabajador
+    list: Listado de Trabajadores
+    create: Adicionar Trabajador
+    edit: Modificar Trabajador
+    delete: Eliminar Trabajador
+    show: Ver Datos de Trabajador
+    name: Nombre
+    curriculum: Resumen Curricular
+    picture: Foto
+    email: Correo
+    job: Cargo
+    docente_category: Categoría Docente
+    cientific_category: Categoría Científica
+    investigative_category: Categoría Investigativa
+    company: Empresa
+    save: Guardar

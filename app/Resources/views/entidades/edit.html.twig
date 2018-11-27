@@ -1,0 +1,29 @@
+{% extends 'admin.html.twig' %}
+{% block page_title %}{{ ('entidades.' ~ entityType ~ '.list')|trans }}{% endblock %}
+{% block title %}{{ ('entidades.' ~ entityType ~ '.list')|trans }}{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-body">
+                    <button class="btn btn-default pull-right btn-sm"
+                            onClick="location.href = '{{ path(entityType ~ '_index') }}'">
+                        <i class="fa fa-reply"></i> {{ ('entidades.' ~ entityType ~ '.list')|trans }}
+                    </button>
+                    <hr>
+                    <div class="tabbable">
+                        <div class="tab-content no-space">
+                            <div class="tab-pane active" id="tab_general">
+                                <div class="form-body">
+                                    {{form_start(edit_form)}}
+                                    {{form_widget(edit_form)}}
+                                    {{form_end(edit_form)}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

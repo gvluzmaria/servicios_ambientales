@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}Centro de Servicios Ambientales{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="{{ asset('assets/vendor/magnific-popup/magnific-popup.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('assets/css/creative.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/sb-admin.min.css') }}" rel="stylesheet">
+
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Servicios Ambientales</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuestro Centro</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item js-scroll-trigger" href="#about">Información General y Objeto Social</a>
+                        <a class="dropdown-item" href="#">Estructura del Centro</a>
+                        <a class="dropdown-item" href="#">Capital Humano</a>
+                        <a class="dropdown-item" href="#">Servicios Ejecutados</a>
+                        <a class="dropdown-item" href="#">Publicaciones</a>
+                        <a class="dropdown-item" href="#">Trabajos Presentados en Eventos</a>
+                        <a class="dropdown-item" href="#">Proyectos</a>
+                        <a class="dropdown-item" href="#">Noticias</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#services">Eventos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">Servicios</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otros</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="#">Efemérides Ambientales</a>
+                        <a class="dropdown-item" href="#">Educación Ambiental</a>
+                        <a class="dropdown-item" href="#">Videos e imágenes</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">Contáctenos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{{ path('admin_list') }}">Administrar</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="masthead text-center text-white d-flex">
+    <div class="container my-auto">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h1 class="text-uppercase">
+                    <strong>Se pone algo como el slogan de la empresa</strong>
+                </h1>
+                <hr>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+                <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Nuestro Centro</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading text-white">Información General</h2>
+                <hr class="light my-4">
+                <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+                {#<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>#}
+                <h2 class="section-heading text-white">Objeto Social</h2>
+                <hr class="light my-4">
+                <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Eventos</h2>
+                <hr class="my-4">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
+                    <h3 class="mb-3">Evento 1</h3>
+                    <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
+                    <h3 class="mb-3">Evento 2</h3>
+                    <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
+                    <h3 class="mb-3">Evento 3</h3>
+                    <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                    <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
+                    <h3 class="mb-3">Evento 4</h3>
+                    <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="p-0" id="portfolio">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters popup-gallery">
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/1.jpg') }}">
+                    <img class="img-fluid" src="{{ asset('assets/img/portfolio/thumbnails/1.jpg') }}" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Servicio
+                            </div>
+                            <div class="project-name">
+                                Asesorías
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/2.jpg') }}">
+                    <img class="img-fluid" src="{{ asset('assets/img/portfolio/thumbnails/2.jpg') }}" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Servicio
+                            </div>
+                            <div class="project-name">
+                                Diagnósticos Ambientales
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/3.jpg') }}">
+                    <img class="img-fluid" src="{{ asset('assets/img/portfolio/thumbnails/3.jpg') }}" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Servicio
+                            </div>
+                            <div class="project-name">
+                                Alquiler de Espacios y Locales
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/4.jpg') }}">
+                    <img class="img-fluid" src="{{ asset('assets/img/portfolio/thumbnails/4.jpg') }}" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Servicio
+                            </div>
+                            <div class="project-name">
+                                Senderismo
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/5.jpg') }}">
+                    <img class="img-fluid" src="{{ asset('assets/img/portfolio/thumbnails/5.jpg') }}" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Servicio
+                            </div>
+                            <div class="project-name">
+                                Venta de Plantas Ornamentales
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/6.jpg') }}">
+                    <img class="img-fluid" src="{{ asset('assets/img/portfolio/thumbnails/6.jpg') }}" alt="">
+                    <div class="portfolio-box-caption">
+                        <div class="portfolio-box-caption-content">
+                            <div class="project-category text-faded">
+                                Servicio
+                            </div>
+                            <div class="project-name">
+                                Ambientación con Plantas Ornamentales
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-dark text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Contrate nuestros servicios</h2>
+        <a class="btn btn-primary btn-xl sr-button" href="#about">Ficha de Cliente</a>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-heading">Contáctenos</h2>
+                <hr class="my-4">
+                <p class="mb-5">Dirección: Ave. de los Mártires #2</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 ml-auto text-center">
+                <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
+                <p>41-324342</p>
+            </div>
+            <div class="col-lg-4 mr-auto text-center">
+                <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
+                <p>
+                    <a href="mailto:your-email@your-domain.com">correo@csa.yayabo.inf.cu</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sticky Footer -->
+<footer class="bg-dark text-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright © Centro de Servicios Ambientales {{ 'now'|date('Y') }}</span>
+        </div>
+    </div>
+</footer>
+
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+{% block javascripts %}{% endblock %}
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<!-- Plugin JavaScript -->
+<script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/scrollreveal/scrollreveal.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
+
+<!-- Custom scripts for this template -->
+<script src="{{ asset('assets/js/creative.min.js') }}"></script>
+<script src="{{ asset('assets/js/sb-admin.min.js') }}"></script>
+
+</body>
+
+</html>

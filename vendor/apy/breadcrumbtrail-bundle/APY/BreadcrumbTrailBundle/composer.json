@@ -1,0 +1,25 @@
+{
+    "name": "apy/breadcrumbtrail-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 Breadcrumbs Bundle with annotations and PHP",
+    "keywords": ["symfony", "breadcrumb Trail", "breadcrumbs", "fil ariane", "annotation"],
+    "homepage": "https://github.com/Abhoryo/APYBreadcrumbTrailBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yoann Petit",
+            "email": "abhoryo@free.fr"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": "^2.3|^3.0"
+    },
+    "suggest": {
+        "ext-intl": "*"
+    },
+    "autoload": {
+        "psr-0": { "APY\\BreadcrumbTrailBundle": "" }
+    },
+    "target-dir": "APY/BreadcrumbTrailBundle"
+}

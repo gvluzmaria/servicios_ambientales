@@ -1,0 +1,116 @@
+{% extends 'admin.html.twig' %}
+{% block page_title %}{{ ('nomenclator.' ~ entityType ~ '.list')|trans }}{% endblock %}
+{% block title %}{{ ('nomenclator.' ~ entityType ~ '.list')|trans }}{% endblock %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light portlet-fit bordered">
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm"
+                                            onclick="location.href = '{{ path(entityType ~ '_new') }}'">
+                                        <i class="fa fa-plus"></i> {{ ('nomenclator.' ~ entityType ~ '.create')|trans }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <table class="table table-striped table-bordered dataTable" role="grid" id="table-datatable">
+                        <thead>
+                        <tr role="row">
+                            {%- if entityType == 'categoria_docente' or entityType == 'cargo' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 80%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.description')|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'tipo_usuario' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 80%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.kind')|trans }}</th>
+                           {% endif %}
+                            {%- if entityType == 'tipo_servicio' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.name')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.paymentInCash')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.contract')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.priceCUP')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.priceCUC')|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'vinculo' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 40%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.ref')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 40%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.name')|trans }}</th>
+                            {% endif %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% if entities|length > 0 %}
+                        {% for entity in entities %}
+                            <tr role="row">
+                                {%- if entityType == 'categoria_docente' or entityType == 'cargo' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.descripcion }}
+                                        </a>
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'tipo_servicio' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.nombre }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ entity.pagoEnEfectivo }}
+                                    </td>
+                                    <td>
+                                        {{ entity.llevaContrato }}
+                                    </td>
+                                    <td>
+                                        {{ entity.precioCUP }}
+                                    </td>
+                                    <td>
+                                        {{ entity.precioCUC }}
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'tipo_usuario' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.tipoUsuario }}
+                                        </a>
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'vinculo' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.vinculo }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ entity.nombre }}
+                                    </td>
+                                {% endif %}
+                                <td align="center">
+                                    <div>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}"
+                                           class="btn btn-success btn-sm tooltips" data-container="body"
+                                           data-original-title="{{ 'actions.show'|trans }}" style="margin-right: auto">
+                                            <i class="fa fa-eye"></i></a>
+                                        <a href="{{ path(entityType ~ '_edit', { 'id': entity.id }) }}"
+                                           class="btn btn-primary btn-sm tooltips" data-container="body"
+                                           data-original-title="{{ 'actions.edit'|trans }}" style="margin-right: auto">
+                                            <i class="fa fa-edit"></i></a>
+                                        <a data-id="{{ entity.id }}"
+                                           href="{{ path(entityType ~ '_delete', { 'id': entity.id }) }}" class="btn btn-danger btn-sm tooltips delete-selection"
+                                           data-container="body" data-original-title="{{ 'actions.delete'|trans }}">
+                                            <i class="fa fa-trash"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
