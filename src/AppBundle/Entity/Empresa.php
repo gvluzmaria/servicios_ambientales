@@ -37,7 +37,7 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="correo", type="string", length=30)
+     * @ORM\Column(name="correo", type="string", length=255)
      */
     private $correo;
 
@@ -58,21 +58,21 @@ class Empresa
     /**
      * @var string
      *
-     * @ORM\Column(name="infoGeneral", type="string", length=255)
+     * @ORM\Column(name="infoGeneral", type="string", length=1000)
      */
     private $infoGeneral;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="objetoSocial", type="string", length=255)
+     * @ORM\Column(name="objetoSocial", type="string", length=1000)
      */
     private $objetoSocial;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="estructuraCentro", type="string", length=255)
+     * @ORM\Column(name="estructuraCentro", type="string", length=1000)
      */
     private $estructuraCentro;
 

@@ -37,6 +37,13 @@ class TipoDeServicio
     private $nombre;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255)
+     */
+    private $descripcion;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="pagoEnEfectivo", type="boolean")
@@ -65,6 +72,37 @@ class TipoDeServicio
      * @Assert\Type(type="numeric")
      */
     private $precioCUC;
+
+    /**
+     * @var \AppBundle\Entity\TipoDeServicio
+     * @ORM\ManyToOne(targetEntity="TipoDeServicio")
+     * @ORM\JoinColumn(name="idSubordinadoA", referencedColumnName="id")
+     */
+    private $subordinadoA;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="seMuestraEnPagInicial", type="boolean")
+     */
+    private $seMuestraEnPagInicial;
+
+    /**
+     * @ORM\Column(name="imagen", type="string")
+     *
+     * @Assert\File(
+     *     maxSize="1M",
+     *     mimeTypes={"image/gif",
+     *          "image/jpeg", "image/png"
+     *     }
+     * )
+     */
+    protected $imagen;
+
+    public function __toString()
+    {
+        return sprintf('%s', $this->getNombre());
+    }
 
     /**
      * @return int
@@ -96,6 +134,22 @@ class TipoDeServicio
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * @param string $descripcion
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
     }
 
     /**
@@ -160,5 +214,51 @@ class TipoDeServicio
     public function setPrecioCUC($precioCUC)
     {
         $this->precioCUC = $precioCUC;
+    }
+
+    /**
+     * @return TipoDeServicio
+     */
+    public function getSubordinadoA()
+    {
+        return $this->subordinadoA;
+    }
+
+    /**
+     * @param TipoDeServicio $subordinadoA
+     *
+     * @return TipoDeServicio
+     */
+    public function setSubordinadoA($subordinadoA)
+    {
+        $this->subordinadoA = $subordinadoA;
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isSeMuestraEnPagInicial()
+    {
+        return $this->seMuestraEnPagInicial;
+    }
+
+    /**
+     * @param boolean $seMuestraEnPagInicial
+     */
+    public function setSeMuestraEnPagInicial($seMuestraEnPagInicial)
+    {
+        $this->seMuestraEnPagInicial = $seMuestraEnPagInicial;
+    }
+
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
+        return $this;
     }
 }

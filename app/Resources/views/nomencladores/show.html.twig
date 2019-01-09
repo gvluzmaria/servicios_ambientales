@@ -27,6 +27,10 @@
                                         <td>{{ entity.nombre|default('-') }}</td>
                                     </tr>
                                     <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.description')|trans }}</th>
+                                        <td>{{ entity.descripcion|default('-') }}</td>
+                                    </tr>
+                                    <tr>
                                         <th>{{ ('nomenclator.' ~ entityType ~ '.paymentInCash')|trans }}</th>
                                         <td>{{ entity.pagoEnEfectivo|default('-') }}</td>
                                     </tr>
@@ -41,6 +45,14 @@
                                     <tr>
                                         <th>{{ ('nomenclator.' ~ entityType ~ '.priceCUC')|trans }}</th>
                                         <td>{{ entity.precioCUC|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.subordinatedTo')|trans }}</th>
+                                        <td>{{ entity.subordinadoA|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.isShown')|trans }}</th>
+                                        <td>{{ entity.seMuestraEnPagInicial|default('-') }}</td>
                                     </tr>
                                 {% endif %}
                                 {%- if entityType == 'tipo_usuario' -%}
@@ -57,6 +69,56 @@
                                     <tr>
                                         <th>{{ ('nomenclator.' ~ entityType ~ '.name')|trans }}</th>
                                         <td>{{ entity.nombre|default('-') }}</td>
+                                </tr>
+                                {% endif %}
+                                {%- if entityType == 'categoria_cientifica' -%}
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.description')|trans }}</th>
+                                        <td>{{ entity.descripcion|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
+                                {%- if entityType == 'categoria_investigativa' -%}
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.description')|trans }}</th>
+                                        <td>{{ entity.descripcion|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
+                                {%- if entityType == 'efemeride_ambiental' -%}
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.date')|trans }}</th>
+                                        <td>
+                                            {% if entity.fecha is not null %}
+                                                {{ entity.fecha|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.titular')|trans }}</th>
+                                        <td>{{ entity.titularEfemeride|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.efemeride')|trans }}</th>
+                                        <td>{{ entity.efemeride|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.type')|trans }}</th>
+                                        <td>{{ entity.tipoDisenno|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.photo')|trans }}</th>
+                                        <td>{{ entity.foto|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
+                                {%- if entityType == 'red_social' -%}
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.redSocial')|trans }}</th>
+                                        <td>{{ entity.redSocial|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('nomenclator.' ~ entityType ~ '.info')|trans }}</th>
+                                        <td>{{ entity.info|default('-') }}</td>					
                                     </tr>
                                 {% endif %}
                                 </tbody>

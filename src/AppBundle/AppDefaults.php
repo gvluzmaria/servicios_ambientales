@@ -29,4 +29,22 @@ class AppDefaults
     /* start capital_humano */
     const CAPITAL_HUMANO_TYPE = 'capital_humano';
     /* end capital_humano */
+    /* start empresa */
+    const EMPRESA_TYPE = 'empresa';
+    /* end empresa */
+    /* start categoria_cientifica */
+    const CATEGORIA_CIENTIFICA_TYPE = 'categoria_cientifica';
+    /* end categoria_cientifica */
+    /* start categoria_investigativa */
+    const CATEGORIA_INVESTIGATIVA_TYPE = 'categoria_investigativa';
+    /* end categoria_investigativa */
+    /* start efemeride_ambiental */
+    const EFEMERIDE_AMBIENTAL_TYPE = 'efemeride_ambiental';
+    /* end efemeride_ambiental */
+    /* start red_social */
+    const RED_SOCIAL_TYPE = 'red_social';
+    /* end red_social */
+    /* start eventocsa */
+    const EVENTOCSA_TYPE = 'eventocsa';
+    /* end eventocsa */
 }

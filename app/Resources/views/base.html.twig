@@ -42,8 +42,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuestro Centro</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item js-scroll-trigger" href="#about">Información General y Objeto Social</a>
-                        <a class="dropdown-item" href="#">Estructura del Centro</a>
+                        <a class="dropdown-item js-scroll-trigger" href="#about">Información General y Estructura del Centro</a>
                         <a class="dropdown-item" href="#">Capital Humano</a>
                         <a class="dropdown-item" href="#">Servicios Ejecutados</a>
                         <a class="dropdown-item" href="#">Publicaciones</a>
@@ -63,7 +62,6 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="#">Efemérides Ambientales</a>
                         <a class="dropdown-item" href="#">Educación Ambiental</a>
-                        <a class="dropdown-item" href="#">Videos e imágenes</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -77,17 +75,24 @@
     </div>
 </nav>
 
+{% if empresas|length > 0 %}
+{% for empresa in empresas %}
 <header class="masthead text-center text-white d-flex">
     <div class="container my-auto">
         <div class="row">
             <div class="col-lg-10 mx-auto">
                 <h1 class="text-uppercase">
-                    <strong>Se pone algo como el slogan de la empresa</strong>
+                    <img class="img-fluid" src="{{ asset('assets/img/logoCSAsmall.png') }}" alt="">
+                    <strong>Centro de
+                        <br>
+                        Servicios Ambientales
+                    </strong>
                 </h1>
+                <h3 align="center">Sancti Spíritus</h3>
                 <hr>
             </div>
             <div class="col-lg-8 mx-auto">
-                <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+                <p class="text-faded mb-5">{{empresa.objetoSocial}}</p>
                 <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Nuestro Centro</a>
             </div>
         </div>
@@ -98,13 +103,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h2 class="section-heading text-white">Información General</h2>
+                <h2 class="section-heading text-white">{{ ('entidades.empresa.info')|trans }}</h2>
                 <hr class="light my-4">
-                <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+                <p class="text-faded mb-4">{{empresa.infoGeneral}}</p>
                 {#<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>#}
-                <h2 class="section-heading text-white">Objeto Social</h2>
+                <h2 class="section-heading text-white">{{ ('entidades.empresa.center_structure')|trans }}</h2>
                 <hr class="light my-4">
-                <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+                <p class="text-faded mb-4">{{empresa.estructuraCentro}}</p>
             </div>
         </div>
     </div>
@@ -121,14 +126,18 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box mt-5 mx-auto">
-                    <i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
-                    <h3 class="mb-3">Evento 1</h3>
-                    <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+            {% if eventosCSA|length > 0 %}
+            {% for evento in eventosCSA %}
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box mt-5 mx-auto">
+                        <i class="fas fa-4x fa-book-open text-primary mb-3 sr-icon-1"></i>
+                        <h3 class="mb-3">{{evento.nombre}}</h3>
+                        <p class="text-muted mb-0">{{evento.descripcion}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 text-center">
+            {% endfor %}
+            {% endif %}
+{#            <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box mt-5 mx-auto">
                     <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
                     <h3 class="mb-3">Evento 2</h3>
@@ -148,7 +157,7 @@
                     <h3 class="mb-3">Evento 4</h3>
                     <p class="text-muted mb-0">You have to make your websites with love these days!</p>
                 </div>
-            </div>
+            </div>#}
         </div>
     </div>
 </section>
@@ -156,7 +165,27 @@
 <section class="p-0" id="portfolio">
     <div class="container-fluid p-0">
         <div class="row no-gutters popup-gallery">
-            <div class="col-lg-4 col-sm-6">
+            {% if tiposDeServicio|length > 0 %}
+                {% for tipoDeServicio in tiposDeServicio %}
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/1.jpg') }}">
+                            <img class="img-fluid" src="{{ asset('assets/img/portfolio/thumbnails/1.jpg') }}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Servicio
+                                    </div>
+                                    <div class="project-name">
+                                        {{tipoDeServicio.nombre}}
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+{#            <div class="col-lg-4 col-sm-6">
                 <a class="portfolio-box" href="{{ asset('assets/img/portfolio/fullsize/1.jpg') }}">
                     <img class="img-fluid" src="{{ asset('assets/img/portfolio/thumbnails/1.jpg') }}" alt="">
                     <div class="portfolio-box-caption">
@@ -245,7 +274,7 @@
                         </div>
                     </div>
                 </a>
-            </div>
+            </div>#}
         </div>
     </div>
 </section>
@@ -261,20 +290,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h2 class="section-heading">Contáctenos</h2>
+                <h2 class="section-heading">{{ ('entidades.empresa.contactUs')|trans }}</h2>
                 <hr class="my-4">
-                <p class="mb-5">Dirección: Ave. de los Mártires #2</p>
+                <p class="mb-5">{{empresa.direccion}}</p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-4 ml-auto text-center">
                 <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
-                <p>41-324342</p>
+                <p>{{empresa.telefonos}}</p>
             </div>
             <div class="col-lg-4 mr-auto text-center">
                 <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
                 <p>
-                    <a href="mailto:your-email@your-domain.com">correo@csa.yayabo.inf.cu</a>
+                    <a href="mailto:{{empresa.correo}}">{{empresa.correo}}</a>
                 </p>
             </div>
         </div>
@@ -293,6 +322,9 @@
 <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
 </a>
+
+{% endfor %}
+{% endif %}
 
 {% block javascripts %}{% endblock %}
 

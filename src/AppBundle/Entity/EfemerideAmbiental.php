@@ -64,26 +64,6 @@ class EfemerideAmbiental {
     private $foto;
 
     /**
-     * EfemerideAmbiental constructor
-     *
-     * @param $id
-     * @param $fecha
-     * @param $titularEfemeride
-     * @param $efemeride
-     * @param $tipoDisenno
-     * @param $foto
-     */
-    function __construct($id, $fecha, $titularEfemeride, $efemeride, $tipoDisenno, $foto)
-    {
-        $this->id = $id;
-        $this->fecha = $fecha;
-        $this->titularEfemeride = $titularEfemeride;
-        $this->efemeride = $efemeride;
-        $this->tipoDisenno = $tipoDisenno;
-        $this->foto = $foto;
-    }
-
-    /**
      * @param int $id
      */
     public function setId($id)
@@ -100,7 +80,7 @@ class EfemerideAmbiental {
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getFecha()
     {
@@ -108,7 +88,7 @@ class EfemerideAmbiental {
     }
 
     /**
-     * @param mixed $fecha
+     * @param \DateTime $fecha
      */
     public function setFecha($fecha)
     {

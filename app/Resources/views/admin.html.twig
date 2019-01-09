@@ -30,7 +30,7 @@
 
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Servicios Ambientales</a>
+    <a class="navbar-brand mr-1" href="{{ path('empresa_info') }}">Servicios Ambientales</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -69,91 +69,169 @@
             </div>
         </li>
         <li class="nav-item dropdown no-arrow">
+            {% if app.user %}
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-user-circle fa-fw"></i>
+                <span class="username username-hide-on-mobile"> {{ app.user.username }} </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+{#                <a class="dropdown-item" href="{{ path('fos_user_profile_show') }}">{{ 'user.profile'|trans }}</a>
+                <div class="dropdown-divider"></div>#}
+                <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}">{{ 'user.logout'|trans }}</a>
             </div>
+            {% else %}
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle fa-fw"></i>
+                <span class="username username-hide-on-mobile"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="{{ path('fos_user_registration_register') }}">{{ 'user.register'|trans }}</a>
+                <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">{{ 'user.login'|trans }}</a>
+            </div>
+            {% endif %}
         </li>
     </ul>
-
 </nav>
 
 <div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-        <li class="nav-item dropdown active show">
-            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Nomencladores</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                <a class="dropdown-item" href="{{ path('cargo_index') }}">Cargos</a>
-                <div class="dropdown-divider"></div>
-                <h6 class="dropdown-header">Categorías</h6>
-                <a class="dropdown-item" href="{{ path('categoria_docente_index') }}">Docentes</a>
-                <a class="dropdown-item" href="">Científicas</a>
-                <a class="dropdown-item" href="">Investigativas</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">Efemérides Ambientales</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="">Redes Sociales</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ path('vinculo_index') }}">Vínculos</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ path('tipo_servicio_index') }}">Tipos de Servicio</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ path('tipo_usuario_index') }}">Tipos de Usuario</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ path('capital_humano_index') }}">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Capital Humano</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-building"></i>
-                <span>Empresas</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-briefcase"></i>
-                <span>Clientes</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-book-open"></i>
-                <span>Eventos</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-university"></i>
-                <span>Eventos Externos</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Usuarios</span></a>
-        </li>
+        {% if app.user %}
+            <li class="nav-item dropdown active show">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Nomencladores</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    <a class="dropdown-item" href="{{ path('cargo_index') }}">Cargos</a>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">Categorías</h6>
+                    <a class="dropdown-item" href="{{ path('categoria_docente_index') }}">Docentes</a>
+                    <a class="dropdown-item" href="{{ path('categoria_cientifica_index') }}">Científicas</a>
+                    <a class="dropdown-item" href="{{ path('categoria_investigativa_index') }}">Investigativas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('efemeride_ambiental_index') }}">Efemérides Ambientales</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('red_social_index') }}">Redes Sociales</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('vinculo_index') }}">Vínculos</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('tipo_servicio_index') }}">Tipos de Servicio</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('tipo_usuario_index') }}">Tipos de Usuario</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('empresa_index') }}">
+                    <i class="fas fa-fw fa-building"></i>
+                    <span>Empresas</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('capital_humano_index') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Capital Humano</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('eventocsa_index') }}">
+                    <i class="fas fa-fw fa-book-open"></i>
+                    <span>Eventos CSA</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-university"></i>
+                    <span>Eventos Externos</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-newspaper"></i>
+                    <span>Noticias Ambientales</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-briefcase"></i>
+                    <span>Clientes</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="tables.html">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Usuarios</span></a>
+            </li>
+        {% else %}
+            <li class="nav-item dropdown active show">
+                <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Nomencladores</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Cargos</a>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="dropdown-header">Categorías</h6>
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Docentes</a>
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Científicas</a>
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Investigativas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Efemérides Ambientales</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Redes Sociales</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Vínculos</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Tipos de Servicio</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('fos_user_security_login') }}">Tipos de Usuario</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('fos_user_security_login') }}">
+                    <i class="fas fa-fw fa-building"></i>
+                    <span>Empresas</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('fos_user_security_login') }}">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Capital Humano</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('fos_user_security_login') }}">
+                    <i class="fas fa-fw fa-book-open"></i>
+                    <span>Eventos CSA</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('fos_user_security_login') }}">
+                    <i class="fas fa-fw fa-university"></i>
+                    <span>Eventos Externos</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('fos_user_security_login') }}">
+                    <i class="fas fa-fw fa-newspaper"></i>
+                    <span>Noticias Ambientales</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('fos_user_security_login') }}">
+                    <i class="fas fa-fw fa-briefcase"></i>
+                    <span>Clientes</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('fos_user_security_login') }}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Usuarios</span></a>
+            </li>
+        {% endif %}
     </ul>
 
     <div id="content-wrapper">
 
         <div class="container-fluid">
-            <!-- Breadcrumbs-->
+            <!-- Breadcrumbs
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="#">Dashboard</a>
                 </li>
                 <li class="breadcrumb-item active">Overview</li>
-            </ol>
+            </ol>-->
             <div id="container">
                 <!-- BEGIN PAGE TITLE-->
                 <h1 class="page-title"> {% block page_title %}{% endblock %}

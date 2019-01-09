@@ -46,17 +46,6 @@ class CategoriaCientifica {
     }
 
     /**
-     * CategoriaCientifica constructor.
-     * @param int $id
-     * @param string $descripcion
-     */
-    function __construct($id, $descripcion)
-    {
-        $this->descripcion = $descripcion;
-        $this->id = $id;
-    }
-
-    /**
      * @param mixed $capitalHumano
      */
     public function setCapitalHumano($capitalHumano)

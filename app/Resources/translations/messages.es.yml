@@ -1,7 +1,7 @@
 # Sistema
 servicios_ambientales: servicios_ambientales
 system:
-  title: servicios_ambientales
+  title: Servicios Ambientales
   icon: fa fa-tint
   separator:
     one: Sistema
@@ -74,6 +74,7 @@ user:
   login: Iniciar sesión
   profile: Mi perfil
   role: Rol(es)
+  register: Registrarse
 
 # Acciones
 actions:
@@ -141,10 +142,14 @@ nomenclator:
     delete: Eliminar Tipo de Servicio
     show: Ver Datos de Tipo de Servicio
     name: Nombre
+    description: Descripción
     paymentInCash: Pago En Efectivo
     contract: Lleva Contrato
     priceCUP: Precio en CUP
     priceCUC: Precio en CUC
+    subordinatedTo: Subordinado A
+    isShown: Mostrar en página inicial
+    image: Imagen (gif, jpeg, png)
     save: Guardar
   tipo_usuario:
     title: '[0,1] Tipo de Usuario|[2, Inf] Tipos de Usuario'
@@ -169,6 +174,44 @@ nomenclator:
     ref: Vínculo
     name: Nombre
     save: Guardar
+  categoria_investigativa:
+    title: '[0,1] Categoría Investigativa|[2, Inf] Categorías Investigativas'
+    label: Categoría Investigativa
+    alt: Categoría Investigativa
+    list: Listado de Categorías Investigativas
+    create: Adicionar Categoría Investigativa
+    edit: Modificar Categoría Investigativa
+    delete: Eliminar Categoría Investigativa
+    show: Ver Datos de Categoría Investigativa
+    description: Descripción
+    save: Guardar
+  efemeride_ambiental:
+    title: '[0,1] Efemeride Ambiental|[2, Inf] Efemerides Ambientales'
+    label: Efemeride Ambiental
+    alt: Efemeride Ambiental
+    list: Listado de Efemerides Ambientales
+    create: Adicionar Efemeride Ambiental
+    edit: Modificar Efemeride Ambiental
+    delete: Eliminar Efemeride Ambiental
+    show: Ver Datos de Efemeride Ambiental
+    date: Fecha
+    titular: Titular de la Efemeride
+    efemeride: Efemeride
+    type: Tipo de diseño
+    photo: Foto de la efemeride
+    save: Guardar
+  red_social:
+    title: '[0,1] Red Social|[2, Inf] Redes Sociales'
+    label: Red Social
+    alt: Red Social
+    list: Listado de Redes Sociales
+    create: Adicionar Red Social
+    edit: Modificar Red Social
+    delete: Eliminar Red Social
+    show: Ver Datos de Red Social
+    redSocial: Dirección de la Red Social
+    info: Información
+    save: Guardar
 
 #Otras Entidades
 entidades:
@@ -190,4 +233,37 @@ entidades:
     cientific_category: Categoría Científica
     investigative_category: Categoría Investigativa
     company: Empresa
+    save: Guardar
+  empresa:
+    title: '[0,1] Empresa|[2, Inf] Empresas'
+    label: Empresa
+    alt: Empresa
+    list: Listado de Empresas
+    create: Adicionar Empresa
+    edit: Modificar Empresa
+    delete: Eliminar Empresa
+    show: Ver Datos de Empresa
+    name: Nombre
+    email: Correos
+    phone_number: Teléfonos
+    address: Dirección
+    info: Información General
+    social_objective: Objeto Social
+    center_structure: Estructura del Centro
+    contactUs: Contáctenos
+    save: Guardar
+  eventocsa:
+    title: '[0,1] Evento CSA|[2, Inf] Eventos CSA'
+    label: Evento CSA
+    alt: Evento CSA
+    list: Listado de Eventos CSA
+    create: Adicionar Evento CSA
+    edit: Modificar Evento CSA
+    delete: Eliminar Evento CSA
+    show: Ver Datos de Evento CSA
+    name: Nombre
+    init_date: Fecha Inicial
+    end_date: Fecha Final
+    description: Descripción
+    contacts: Contactos
     save: Guardar

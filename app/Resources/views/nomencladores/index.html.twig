@@ -30,14 +30,36 @@
                            {% endif %}
                             {%- if entityType == 'tipo_servicio' -%}
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.name')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 30%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.description')|trans }}</th>
+{#
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.paymentInCash')|trans }}</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.contract')|trans }}</th>
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.priceCUP')|trans }}</th>
-                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.priceCUC')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.priceCUP')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.priceCUC')|trans }}</th>
+#}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.subordinatedTo')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.isShown')|trans }}</th>
                             {% endif %}
                             {%- if entityType == 'vinculo' -%}
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 40%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.ref')|trans }}</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 40%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('nomenclator.' ~ entityType ~ '.name')|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'categoria_cientifica' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 80%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.categoria_cientifica.description'|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'categoria_investigativa' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 80%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.categoria_investigativa.description'|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'efemeride_ambiental' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.efemeride_ambiental.date'|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.efemeride_ambiental.titular'|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.efemeride_ambiental.efemeride'|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.efemeride_ambiental.type'|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.efemeride_ambiental.photo'|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'red_social' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 40%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.red_social.redSocial'|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 40%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ 'nomenclator.red_social.info'|trans }}</th>
                             {% endif %}
                         </tr>
                         </thead>
@@ -59,6 +81,9 @@
                                         </a>
                                     </td>
                                     <td>
+                                        {{ entity.descripcion }}
+                                    </td>
+{#                                    <td>
                                         {{ entity.pagoEnEfectivo }}
                                     </td>
                                     <td>
@@ -69,6 +94,12 @@
                                     </td>
                                     <td>
                                         {{ entity.precioCUC }}
+                                    </td>#}
+                                    <td>
+                                        {{ entity.subordinadoA }}
+                                    </td>
+                                    <td>
+                                        {{ entity.seMuestraEnPagInicial }}
                                     </td>
                                 {% endif %}
                                 {%- if entityType == 'tipo_usuario' -%}
@@ -86,6 +117,53 @@
                                     </td>
                                     <td>
                                         {{ entity.nombre }}
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'categoria_cientifica' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.descripcion }}
+                                        </a>
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'categoria_investigativa' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.descripcion }}
+                                        </a>
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'efemeride_ambiental' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {% if entity.fecha is not null %}
+                                                {{ entity.fecha|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ entity.titularEfemeride }}
+                                    </td>
+                                    <td>
+                                        {{ entity.efemeride }}
+                                    </td>
+                                    <td>
+                                        {{ entity.tipoDisenno }}
+                                    </td>
+                                    <td>
+                                        {{ entity.foto }}
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'red_social' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.redSocial }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ entity.info }}
                                     </td>
                                 {% endif %}
                                 <td align="center">

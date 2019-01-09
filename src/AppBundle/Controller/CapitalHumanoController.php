@@ -98,23 +98,28 @@ class CapitalHumanoController extends Controller
             ->add('cargo', EntityType::class, array(
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'entidades.capital_humano.job',
-                'class' => 'AppBundle:Cargo'))
+                'class' => 'AppBundle:Cargo',
+                'required' => false))
             ->add('categoriaDocente', EntityType::class, array(
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'entidades.capital_humano.docente_category',
-                'class' => 'AppBundle:CategoriaDocente'))
+                'class' => 'AppBundle:CategoriaDocente',
+                'required' => false))
             ->add('categoriaCientifica', EntityType::class, array(
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'entidades.capital_humano.cientific_category',
-                'class' => 'AppBundle:CategoriaCientifica'))
+                'class' => 'AppBundle:CategoriaCientifica',
+                'required' => false))
             ->add('categoriaInvestigativa', EntityType::class, array(
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'entidades.capital_humano.investigative_category',
-                'class' => 'AppBundle:CategoriaInvestigativa'))
+                'class' => 'AppBundle:CategoriaInvestigativa',
+                'required' => false))
             ->add('empresa', EntityType::class, array(
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'entidades.capital_humano.company',
-                'class' => 'AppBundle:Empresa'))
+                'class' => 'AppBundle:Empresa',
+                'required' => false))
             ->add('guardar', SubmitType::class, array(
                     'attr' => array('class' => 'btn btn-primary', 'style' => 'margin-bottom:15px'),
                     'label' => 'entidades.capital_humano.save')

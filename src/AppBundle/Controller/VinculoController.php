@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use APY\BreadcrumbTrailBundle\Annotation\Breadcrumb;
@@ -80,7 +81,7 @@ class VinculoController extends Controller
         $vinculo == null ? $vinculo = new Vinculo() : '';
 
         $form = $this->createFormBuilder($vinculo)
-            ->add('vinculo', TextType::class, array(
+            ->add('vinculo', UrlType::class, array(
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'nomenclator.vinculo.ref'))
             ->add('nombre', TextType::class, array(

@@ -55,6 +55,70 @@
                                         <td>{{ entity.empresa|default('-') }}</td>
                                     </tr>
                                 {% endif %}
+                                {%- if entityType == 'empresa' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombreEmpresa|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.email')|trans }}</th>
+                                        <td>{{ entity.correo|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.phone_number')|trans }}</th>
+                                        <td>{{ entity.telefonos|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.address')|trans }}</th>
+                                        <td>{{ entity.direccion|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.info')|trans }}</th>
+                                        <td>{{ entity.infoGeneral|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.social_objective')|trans }}</th>
+                                        <td>{{ entity.objetoSocial|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.center_structure')|trans }}</th>
+                                        <td>{{ entity.estructuraCentro|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
+                                {%- if entityType == 'eventocsa' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombre|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.init_date')|trans }}</th>
+                                        <td>
+                                            {% if entity.fechaInicial is not null %}
+                                                {{ entity.fechaInicial|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.end_date')|trans }}</th>
+                                        <td>
+                                            {% if entity.fechaFinal is not null %}
+                                                {{ entity.fechaFinal|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.description')|trans }}</th>
+                                        <td>{{ entity.descripcion|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.contacts')|trans }}</th>
+                                        <td>{{ entity.contactos|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
                                 </tbody>
                             </table>
                         </div>

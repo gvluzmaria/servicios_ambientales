@@ -33,6 +33,22 @@
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.investigative_category')|trans }}</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.company')|trans }}</th>
                             {% endif %}
+                            {%- if entityType == 'empresa' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 5%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 5%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.email')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 5%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.phone_number')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 5%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.address')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.info')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.social_objective')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.center_structure')|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'eventocsa' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.init_date')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.end_date')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.description')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.contacts')|trans }}</th>
+                            {% endif %}
                         </tr>
                         </thead>
                         <tbody>
@@ -70,6 +86,58 @@
                                         {{ entity.empresa }}
                                     </td>
                                 {% endif %}
+                                {%- if entityType == 'empresa' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.nombreEmpresa }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ entity.correo }}
+                                    </td>
+                                    <td>
+                                        {{ entity.telefonos }}
+                                    </td>
+                                    <td>
+                                        {{ entity.direccion }}
+                                    </td>
+                                    <td>
+                                        {{ entity.infoGeneral }}
+                                    </td>
+                                    <td>
+                                        {{ entity.objetoSocial }}
+                                    </td>
+                                    <td>
+                                        {{ entity.estructuraCentro }}
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'eventocsa' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.nombre }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {% if entity.fechaInicial is not null %}
+                                            {{ entity.fechaInicial|date('d/m/Y') }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if entity.fechaFinal is not null %}
+                                            {{ entity.fechaFinal|date('d/m/Y') }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {{ entity.descripcion }}
+                                    </td>
+                                    <td>
+                                        {{ entity.contactos }}
+                                    </td>
+                                  {% endif %}
                                 <td align="center">
                                     <div>
                                         <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}"

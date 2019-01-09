@@ -43,20 +43,6 @@ class RedSocial {
     private $info;
 
     /**
-     * RedSocial constructor
-     *
-     * @param $id
-     * @param $redSocial
-     * @param $info
-     */
-    function __construct($id, $redSocial, $info)
-    {
-        $this->id = $id;
-        $this->redSocial = $redSocial;
-        $this->info = $info;
-    }
-
-    /**
      * @param int $id
      */
     public function setId($id)

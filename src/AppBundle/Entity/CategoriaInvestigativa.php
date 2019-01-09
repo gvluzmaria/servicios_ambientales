@@ -44,18 +44,6 @@ class CategoriaInvestigativa {
     {
         return sprintf('%s', $this->getDescripcion());
     }
-
-    /**
-     * CategoriaInvestigativa constructor.
-     * @param int $id
-     * @param string $descripcion
-     */
-    function __construct($id, $descripcion)
-    {
-        $this->descripcion = $descripcion;
-        $this->id = $id;
-    }
-
     /**
      * @param int $id
      */

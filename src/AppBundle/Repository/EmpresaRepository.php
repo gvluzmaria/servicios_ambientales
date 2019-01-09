@@ -11,4 +11,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class EmpresaRepository extends EntityRepository
 {
+    public function findTop1()
+    {
+        return $this->getEntityManager()->createQuery(
+            'SELECT s FROM AppBundle:Empresa s ORDER BY s.id DESC'
+        )->setMaxResults(1)->getResult();
+    }
 }

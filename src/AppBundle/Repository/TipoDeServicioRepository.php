@@ -11,4 +11,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class TipoDeServicioRepository extends EntityRepository
 {
+    public function findTop6TiposServicio()
+    {
+        return $this->getEntityManager()->createQuery(
+            'SELECT s FROM AppBundle:TipoDeServicio s ORDER BY s.seMuestraEnPagInicial DESC'
+        )->setMaxResults(6)->getResult();
+    }
 }
