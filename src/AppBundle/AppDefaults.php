@@ -44,6 +44,9 @@ class AppDefaults
     /* start red_social */
     const RED_SOCIAL_TYPE = 'red_social';
     /* end red_social */
+    /* start proyecto */
+    const PROYECTO_TYPE = 'proyecto';
+    /* end proyecto */
     /* start eventocsa */
     const EVENTOCSA_TYPE = 'eventocsa';
     /* end eventocsa */

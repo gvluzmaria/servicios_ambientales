@@ -85,6 +85,16 @@
                                         <td>{{ entity.estructuraCentro|default('-') }}</td>
                                     </tr>
                                 {% endif %}
+                                {%- if entityType == 'proyecto' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.inicial_date')|trans }}</th>
+                                        <td>{{ entity.fechaInicial|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.final_date')|trans }}</th>
+                                        <td>{{ entity.fechaFinal|default('-') }}</td>
+                                    </tr>
+                                {% endif %}				
                                 {%- if entityType == 'eventocsa' -%}
                                     <tr>
                                         <th>{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>

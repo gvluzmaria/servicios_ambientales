@@ -42,6 +42,10 @@
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.social_objective')|trans }}</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.center_structure')|trans }}</th>
                             {% endif %}
+                           {%- if entityType == 'proyecto' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 5%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.inicial_date')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 5%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.final_date')|trans }}</th>
+                            {% endif %}			    
                             {%- if entityType == 'eventocsa' -%}
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
                                 <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.init_date')|trans }}</th>
@@ -111,6 +115,16 @@
                                         {{ entity.estructuraCentro }}
                                     </td>
                                 {% endif %}
+                                {%- if entityType == 'proyecto' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.fechaInicial }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ entity.fechaFinal }}
+                                    </td>
+                                {% endif %}				
                                 {%- if entityType == 'eventocsa' -%}
                                     <td>
                                         <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">

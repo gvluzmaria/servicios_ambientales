@@ -252,6 +252,18 @@ entidades:
     center_structure: Estructura del Centro
     contactUs: Contáctenos
     save: Guardar
+  proyecto:
+    title: '[0,1] Proyecto|[2, Inf] Proyectos'
+    label: Proyecto
+    alt: Proyecto
+    list: Listado de Proyectos
+    create: Adicionar Proyecto
+    edit: Modificar Proyecto
+    delete: Eliminar Proyecto
+    show: Ver Datos de Proyecto
+    inicial_date: Fecha de inicio
+    final_date: Fecha final
+    save: Guardar
   eventocsa:
     title: '[0,1] Evento CSA|[2, Inf] Eventos CSA'
     label: Evento CSA
