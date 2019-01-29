@@ -50,4 +50,16 @@ class AppDefaults
     /* start eventocsa */
     const EVENTOCSA_TYPE = 'eventocsa';
     /* end eventocsa */
+    /* start publicacion */
+    const PUBLICACION_TYPE = 'publicacion';
+    /* end publicacion */
+    /* start noticia_ambiental */
+    const NOTICIA_AMBIENTAL_TYPE = 'noticia_ambiental';
+    /* end noticia_ambiental */
+    /* start cliente */
+    const CLIENTE_TYPE = 'cliente';
+    /* end cliente */
+    /* start entidades */
+    const GROUP_ENTITIES = 'entidades';
+    /* end entidades */
 }

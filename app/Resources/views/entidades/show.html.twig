@@ -88,7 +88,13 @@
                                 {%- if entityType == 'proyecto' -%}
                                     <tr>
                                         <th>{{ ('entidades.' ~ entityType ~ '.inicial_date')|trans }}</th>
-                                        <td>{{ entity.fechaInicial|default('-') }}</td>
+                                        <td>
+                                            {% if entity.fechaInicial is not null %}
+                                                {{ entity.fechaInicial|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>{{ ('entidades.' ~ entityType ~ '.final_date')|trans }}</th>
@@ -129,6 +135,46 @@
                                         <td>{{ entity.contactos|default('-') }}</td>
                                     </tr>
                                 {% endif %}
+                                {%- if entityType == 'cliente' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombre|default('-') }}</td>
+                                    </tr>
+                                {% endif %} 
+                                {%- if entityType == 'publicacion' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombrePublicacion|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.company')|trans }}</th>
+                                        <td>{{ entity.empresa|default('-') }}</td>
+                                    </tr>                                    
+                                {% endif %}
+                                {%- if entityType == 'noticia_ambiental' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.publishing_date')|trans }}</th>
+                                        <td>
+                                            {% if entity.fechaPublicacion is not null %}
+                                                {{ entity.fechaPublicacion|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.headline')|trans }}</th>
+                                        <td>{{ entity.titular|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.description')|trans }}</th>
+                                        <td>{{ entity.descripcion|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.author')|trans }}</th>
+                                        <td>{{ entity.usuario|default('-') }}</td>
+                                    </tr>                                     
+                                {% endif %} 
                                 </tbody>
                             </table>
                         </div>

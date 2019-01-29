@@ -11,7 +11,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class EventoCSARepository extends EntityRepository
 {
-    public function findTop4TiposServicio()
+    public function findTop4EventosCSA()
     {
         return $this->getEntityManager()->createQuery(
             'SELECT s FROM AppBundle:EventoCSA s ORDER BY s.fechaInicial DESC'

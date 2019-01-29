@@ -15,8 +15,6 @@
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin CSS -->
     <link href="{{ asset('assets/vendor/magnific-popup/magnific-popup.css') }}" rel="stylesheet">
@@ -42,13 +40,21 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nuestro Centro</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item js-scroll-trigger" href="#about">Información General y Estructura del Centro</a>
-                        <a class="dropdown-item" href="#">Capital Humano</a>
-                        <a class="dropdown-item" href="#">Servicios Ejecutados</a>
-                        <a class="dropdown-item" href="#">Publicaciones</a>
-                        <a class="dropdown-item" href="#">Trabajos Presentados en Eventos</a>
+                        <a class="dropdown-item" href="#">Quiénes Somos</a>
+                        <a class="dropdown-item" href="#">Servicios</a>
+                        <a class="dropdown-item" href="#">Eventos CSA</a>
+                        <a class="dropdown-item" href="#">Eventos Externos</a>
+                        <a class="dropdown-item" href="#">Trabajos Presentados</a>
                         <a class="dropdown-item" href="#">Proyectos</a>
-                        <a class="dropdown-item" href="#">Noticias</a>
+                        <a class="dropdown-item" href="#">Investigaciones</a>
+                        <a class="dropdown-item" href="#">Publicaciones</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">De Interés</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="{{ path('noticias_ambientales_list') }}">Noticias Ambientales</a>
+                        <a class="dropdown-item" href="#">Efemérides Ambientales</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -56,13 +62,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#portfolio">Servicios</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otros</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="#">Efemérides Ambientales</a>
-                        <a class="dropdown-item" href="#">Educación Ambiental</a>
-                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#contact">Contáctenos</a>
@@ -312,9 +311,14 @@
 
 <!-- Sticky Footer -->
 <footer class="bg-dark text-white">
-    <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-            <span>Copyright © Centro de Servicios Ambientales {{ 'now'|date('Y') }}</span>
+    <div class="container">
+        <div class="row">
+            <div class="copyright col-lg-6 text-center">
+                Copyright © Centro de Servicios Ambientales {{ 'now'|date('Y') }}
+            </div>
+            <div class="copyright col-lg-6 text-center">
+                Desarrollado por Ing. Luz María González Valdés, Ing. Ismary
+            </div>
         </div>
     </div>
 </footer>

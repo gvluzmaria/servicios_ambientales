@@ -279,3 +279,41 @@ entidades:
     description: Descripción
     contacts: Contactos
     save: Guardar
+  publicacion:
+    title: '[0,1] Publicación|[2, Inf] Publicaciones'
+    label: Publicación
+    alt: Publicación
+    list: Listado de Publicaciones
+    create: Adicionar Publicación
+    edit: Modificar Publicación
+    delete: Eliminar Publicación
+    show: Ver Datos de Publicación
+    name: Nombre
+    company: Empresa
+    save: Guardar
+  cliente:
+    title: '[0,1] Cliente|[2, Inf] Clientes'
+    label: Cliente
+    alt: Cliente
+    list: Listado de Clientes
+    create: Adicionar Cliente
+    edit: Modificar Cliente
+    delete: Eliminar Cliente
+    show: Ver Datos de Cliente
+    name: Nombre
+    save: Guardar
+  noticia_ambiental:
+    title: '[0,1] Noticia Ambiental|[2, Inf] Noticias Ambientales'
+    label: Noticia Ambiental
+    alt: Noticia Ambiental
+    list: Listado de Noticias Ambientales
+    create: Adicionar Noticia Ambiental
+    edit: Modificar Noticia Ambiental
+    delete: Eliminar Noticia Ambiental
+    show: Ver Datos de Noticia Ambiental
+    publishing_date: Fecha de Publicación
+    headline: Titular
+    description: Descripción
+    author: Autor
+    save: Guardar
+    plural: Noticias Ambientales

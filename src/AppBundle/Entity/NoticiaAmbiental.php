@@ -56,22 +56,6 @@ class NoticiaAmbiental {
     private $usuario;
 
     /**
-     * NoticiaAmbiental constructor
-     *
-     * @param $id
-     * @param $fechaPublicacion
-     * @param $titular
-     * @param $descripcion
-     */
-    function __construct($id, $fechaPublicacion, $titular, $descripcion)
-    {
-        $this->id = $id;
-        $this->fechaPublicacion = $fechaPublicacion;
-        $this->titular = $titular;
-        $this->descripcion = $descripcion;
-    }
-
-    /**
      * @param int $id
      */
     public function setId($id)

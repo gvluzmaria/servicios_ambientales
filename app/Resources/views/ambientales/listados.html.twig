@@ -1,0 +1,108 @@
+{% extends 'standard.html.twig' %}
+{% block page_title %}{{ (group ~ '.' ~ entityType ~ '.list')|trans }}{% endblock %}
+{% block title %}{{ (group ~ '.' ~ entityType ~ '.plural')|trans }}{% endblock %}
+{% block body %}
+    <!-- Blog Post -->
+    <div class="card mb-4">
+        <!--<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">-->
+        {%- if entityType == 'noticia_ambiental' -%}
+            <div class="card-body">
+                <h2 class="card-title">{{ entity.titular }}</h2>
+                <p class="card-text">{{ entity.descripcion }}</p>
+                <a href="{{ path(entityType ~ '_detail', { 'id': entity.id }) }}" class="btn btn-primary">Leer más... &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+                Publicado el
+                {% if entity.fechaPublicacion is not null %}
+                    {{ entity.fechaPublicacion|date('d/m/Y') }}
+                {% else %}
+                    -
+                {% endif %}
+                por {{ entity.usuario }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {%- if entityType == 'noticia_ambiental' -%}
+        <!-- Search Widget
+        <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+              <button class="btn btn-secondary" type="button">Go!</button>
+            </span>
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Categories Widget
+        <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#">Web Design</a>
+                            </li>
+                            <li>
+                                <a href="#">HTML</a>
+                            </li>
+                            <li>
+                                <a href="#">Freebies</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#">JavaScript</a>
+                            </li>
+                            <li>
+                                <a href="#">CSS</a>
+                            </li>
+                            <li>
+                                <a href="#">Tutorials</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Side Widget 3-->
+        <div class="card my-4">
+            <h5 class="card-header">Sitios relacionados</h5>
+            <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                    {% if sidebar3|length > 0 %}
+                        {% for vinculo in sidebar3 %}
+                            <li>
+                                <a href="{{ vinculo.vinculo }}">{{ vinculo.nombre }}</a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <!-- Side Widget 4-->
+        <div class="card my-4">
+            <h5 class="card-header">Redes sociales</h5>
+            <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                    {% if sidebar4|length > 0 %}
+                        {% for redSocial in sidebar4 %}
+                            <li>
+                                <a href="{{ redSocial.redSocial }}">{{ redSocial.info }}</a>
+                            </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

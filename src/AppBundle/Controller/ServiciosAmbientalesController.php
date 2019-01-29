@@ -32,11 +32,31 @@ class ServiciosAmbientalesController extends Controller
             ->findTop6TiposServicio();
         $eventosCSA = $this->getDoctrine()
             ->getRepository('AppBundle:EventoCSA')
-            ->findTop4TiposServicio();
+            ->findTop4EventosCSA();
         return $this->render('entidades/main.html.twig', array(
             'empresas' => $empresa,
             'tiposDeServicio' => $tiposDeServicio,
             'eventosCSA' => $eventosCSA
         ));
+    }
+
+    /**
+     * Para los listados
+     * @Route("/listados", name="elements_list")
+     */
+    public function listadosAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('ambientales/listados.html.twig');
+    }
+
+    /**
+     * Para los detalles de los listados
+     * @Route("/detalles", name="list_details")
+     */
+    public function detallesListadosAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('ambientales/detalles.html.twig');
     }
 }

@@ -11,4 +11,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class NoticiaAmbientalRepository extends EntityRepository
 {
+    public function findTop10NoticiasAmbientales()
+    {
+        return $this->getEntityManager()->createQuery(
+            'SELECT s FROM AppBundle:NoticiaAmbiental s ORDER BY s.fechaPublicacion DESC'
+        )->setMaxResults(10)->getResult();
+    }
 }

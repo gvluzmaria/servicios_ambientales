@@ -32,10 +32,10 @@ class EfemerideAmbientalController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $vinculo = $em->getRepository('AppBundle:EfemerideAmbiental')->findAll();
+        $efemeride_ambiental = $em->getRepository('AppBundle:EfemerideAmbiental')->findAll();
 
         return $this->render('nomencladores/index.html.twig', array(
-            'entities' => $vinculo,
+            'entities' => $efemeride_ambiental,
             'entityType' => AppDefaults::EFEMERIDE_AMBIENTAL_TYPE,
             /*'group' => NomencladorDefaults::GROUP_ENTITIES,*/
         ));
