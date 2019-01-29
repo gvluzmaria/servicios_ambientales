@@ -98,7 +98,13 @@
                                     </tr>
                                     <tr>
                                         <th>{{ ('entidades.' ~ entityType ~ '.final_date')|trans }}</th>
-                                        <td>{{ entity.fechaFinal|default('-') }}</td>
+                                        <td>
+                                            {% if entity.fechaFinal is not null %}
+                                                {{ entity.fechaFinal|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
                                     </tr>
                                 {% endif %}				
                                 {%- if entityType == 'eventocsa' -%}
@@ -175,6 +181,64 @@
                                         <td>{{ entity.usuario|default('-') }}</td>
                                     </tr>                                     
                                 {% endif %} 
+                                {%- if entityType == 'evento_externo' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombre|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.init_date')|trans }}</th>
+                                        <td>
+                                            {% if entity.fechaInicial is not null %}
+                                                {{ entity.fechaInicial|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.end_date')|trans }}</th>
+                                        <td>
+                                            {% if entity.fechaFinal is not null %}
+                                                {{ entity.fechaFinal|date('d/m/Y') }}
+                                            {% else %}
+                                                -
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                                {%- if entityType == 'trabajo_presentado' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombre|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.evento_externo')|trans }}</th>
+                                        <td>{{ entity.eventoExterno|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.capital_humano')|trans }}</th>
+                                        <td>{{ entity.capitalHumano|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
+                                {%- if entityType == 'investigacion' -%}
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                        <td>{{ entity.nombreInvestigacion|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.resultado')|trans }}</th>
+                                        <td>{{ entity.resultados|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.empresa')|trans }}</th>
+                                        <td>{{ entity.empresa|default('-') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>{{ ('entidades.' ~ entityType ~ '.capital_humano')|trans }}</th>
+                                        <td>{{ entity.capitalHumano|default('-') }}</td>
+                                    </tr>
+                                {% endif %}
                                 </tbody>
                             </table>
                         </div>

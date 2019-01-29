@@ -62,4 +62,13 @@ class AppDefaults
     /* start entidades */
     const GROUP_ENTITIES = 'entidades';
     /* end entidades */
+    /* start evento_externo */
+    const EVENTOEXTERNO_TYPE = 'evento_externo';
+    /* end evento_externo */
+    /* start trabajo_presentado */
+    const TRABAJO_PRESENTADO_TYPE = 'trabajo_presentado';
+    /* end trabajo_presentado */
+    /* start investigacion */
+    const INVESTIGACION = 'investigacion';
+    /* end investigacion */
 }

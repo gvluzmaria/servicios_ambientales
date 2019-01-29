@@ -36,6 +36,18 @@ class TrabajoPresentado
     private $nombre;
 
     /**
+     * @ORM\ManyToOne(targetEntity="EventoExterno", inversedBy="trabajoPresentado")
+     * @ORM\JoinColumn(name="idEventoExterno", referencedColumnName="id")
+     */
+    private $eventoExterno;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CapitalHumano", inversedBy="trabajoPresentado")
+     * @ORM\JoinColumn(name="idAutor", referencedColumnName="id")
+     */
+    private $capitalHumano;
+
+    /**
      * @return int
      */
     public function getId()
@@ -65,5 +77,41 @@ class TrabajoPresentado
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
+    }
+
+    /**
+     * @param CapitalHumano $capitalHumano
+     *
+     * @return TrabajoPresentado
+     */
+    public function setCapitalHumano($capitalHumano)
+    {
+        $this->capitalHumano = $capitalHumano;
+    }
+
+    /**
+     * @return CapitalHumano
+     */
+    public function getCapitalHumano()
+    {
+        return $this->capitalHumano;
+    }
+
+    /**
+     * @param EventoExterno $eventoExterno
+     *
+     * @return TrabajoPresentado
+     */
+    public function setEventoExterno($eventoExterno)
+    {
+        $this->eventoExterno = $eventoExterno;
+    }
+
+    /**
+     * @return EventoExterno
+     */
+    public function getEventoExterno()
+    {
+        return $this->eventoExterno;
     }
 }

@@ -82,6 +82,11 @@ class Empresa
     private $capitalHumano;
 
     /**
+     * @ORM\OneToMany(targetEntity="Investigacion", mappedBy="empresa", cascade={"persist", "remove"})
+     */
+    private $investigacion;
+
+    /**
      * @ORM\OneToMany(targetEntity="Publicacion", mappedBy="empresa", cascade={"persist", "remove"})
      */
     private $publicacion;
@@ -89,6 +94,22 @@ class Empresa
     public function __toString()
     {
         return sprintf('%s', $this->getNombreEmpresa());
+    }
+
+    /**
+     * @param mixed $investigacion
+     */
+    public function setInvestigacion($investigacion)
+    {
+        $this->investigacion = $investigacion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvestigacion()
+    {
+        return $this->investigacion;
     }
 
     /**

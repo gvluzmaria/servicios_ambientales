@@ -45,14 +45,6 @@ class CategoriaDocente {
     }
 
     /**
-     * @return mixed
-     */
-    public function getCapitalHumano()
-    {
-        return $this->capitalHumano;
-    }
-
-    /**
      * @param int $id
      */
     public function setId($id)
@@ -90,5 +82,13 @@ class CategoriaDocente {
     public function setCapitalHumano($capitalHumano)
     {
         $this->capitalHumano = $capitalHumano;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCapitalHumano()
+    {
+        return $this->capitalHumano;
     }
 } 

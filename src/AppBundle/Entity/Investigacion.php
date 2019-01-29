@@ -42,6 +42,18 @@ class Investigacion
     private $resultados;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Empresa", inversedBy="investigacion")
+     * @ORM\JoinColumn(name="idEmpresa", referencedColumnName="id")
+     */
+    private $empresa;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CapitalHumano", inversedBy="investigacion")
+     * @ORM\JoinColumn(name="idAutor", referencedColumnName="id")
+     */
+    private $capitalHumano;
+
+    /**
      * @return int
      */
     public function getId()
@@ -87,5 +99,41 @@ class Investigacion
     public function setResultados($resultados)
     {
         $this->resultados = $resultados;
+    }
+
+    /**
+     * @param CapitalHumano $capitalHumano
+     *
+     * @return Investigacion
+     */
+    public function setCapitalHumano($capitalHumano)
+    {
+        $this->capitalHumano = $capitalHumano;
+    }
+
+    /**
+     * @return CapitalHumano
+     */
+    public function getCapitalHumano()
+    {
+        return $this->capitalHumano;
+    }
+
+    /**
+     * @param Empresa $empresa
+     *
+     * @return Investigacion
+     */
+    public function setEmpresa($empresa)
+    {
+        $this->empresa = $empresa;
+    }
+
+    /**
+     * @return Empresa
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
     }
 }

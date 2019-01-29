@@ -67,6 +67,22 @@
                             <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 40%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.description')|trans }}</th>
                             <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.author')|trans }}</th>
                         {% endif %}
+                            {%- if entityType == 'evento_externo' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.init_date')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.end_date')|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'trabajo_presentado' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.evento_externo')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.capital_humano')|trans }}</th>
+                            {% endif %}
+                            {%- if entityType == 'investigacion' -%}
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.name')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 20%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.resultado')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.empresa')|trans }}</th>
+                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" style="width: 10%;" aria-label="Name: activate to sort column descending" aria-sort="ascending">{{ ('entidades.' ~ entityType ~ '.capital_humano')|trans }}</th>
+                            {% endif %}
                         <th></th>
                     </tr>
                     </thead>
@@ -141,7 +157,11 @@
                                         </a>
                                     </td>
                                     <td>
-                                        {{ entity.fechaFinal }}
+                                        {% if entity.fechaFinal is not null %}
+                                            {{ entity.fechaFinal|date('d/m/Y') }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
                                     </td>
                                 {% endif %}
                                 {%- if entityType == 'eventocsa' -%}
@@ -208,6 +228,56 @@
                                         {{ entity.usuario }}
                                     </td>
                                 {% endif %}
+                                {%- if entityType == 'evento_externo' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.nombre }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {% if entity.fechaInicial is not null %}
+                                            {{ entity.fechaInicial|date('d/m/Y') }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if entity.fechaFinal is not null %}
+                                            {{ entity.fechaFinal|date('d/m/Y') }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'trabajo_presentado' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.nombre }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ entity.eventoExterno }}
+                                    </td>
+                                    <td>
+                                        {{ entity.capitalHumano }}
+                                    </td>
+                                {% endif %}
+                                {%- if entityType == 'investigacion' -%}
+                                    <td>
+                                        <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}">
+                                            {{ entity.nombreInvestigacion }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ entity.resultados }}
+                                    </td>
+                                    <td>
+                                        {{ entity.empresa }}
+                                    </td>
+                                    <td>
+                                        {{ entity.capitalHumano }}
+                                    </td>
+                                {% endif %}				
                                 <td align="center">
                                     <div>
                                         <a href="{{ path(entityType ~ '_show', { 'id': entity.id }) }}"

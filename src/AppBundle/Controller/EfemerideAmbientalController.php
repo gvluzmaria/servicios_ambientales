@@ -81,9 +81,11 @@ class EfemerideAmbientalController extends Controller
         $efemeride_ambiental == null ? $efemeride_ambiental = new EfemerideAmbiental() : '';
 
         $form = $this->createFormBuilder($efemeride_ambiental)
-            ->add('fecha', DateType::class, array(
+            ->add('fecha', DateType::class, [
+                'widget' => 'single_text',
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
-                'label' => 'nomenclator.efemeride_ambiental.date'))
+                'label' => 'nomenclator.efemeride_ambiental.date'
+            ])
             ->add('titularEfemeride', TextType::class, array(
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'nomenclator.efemeride_ambiental.titular'))

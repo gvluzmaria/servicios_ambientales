@@ -50,6 +50,16 @@ class EventoExterno
     private $fechaFinal;
 
     /**
+     * @ORM\OneToMany(targetEntity="TrabajoPresentado", mappedBy="eventoExterno", cascade={"persist", "remove"})
+     */
+    private $trabajoPresentado;
+
+    public function __toString()
+    {
+        return sprintf('%s', $this->getNombre());
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -111,5 +121,21 @@ class EventoExterno
     public function setFechaFinal($fechaFinal)
     {
         $this->fechaFinal = $fechaFinal;
+    }
+
+    /**
+     * @param mixed $trabajoPresentado
+     */
+    public function setTrabajoPresentado($trabajoPresentado)
+    {
+        $this->trabajoPresentado = $trabajoPresentado;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTrabajoPresentado()
+    {
+        return $this->trabajoPresentado;
     }
 }

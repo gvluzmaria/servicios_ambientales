@@ -88,6 +88,16 @@ class CapitalHumano
     private $empresa;
 
     /**
+     * @ORM\OneToMany(targetEntity="TrabajoPresentado", mappedBy="capitalHumano", cascade={"persist", "remove"})
+     */
+    private $trabajoPresentado;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Investigacion", mappedBy="capitalHumano", cascade={"persist", "remove"})
+     */
+    private $investigacion;
+
+    /**
      * @return int
      */
     public function getId()
@@ -260,5 +270,42 @@ class CapitalHumano
     {
         $this->empresa = $empresa;
         return $this;
+    }
+
+    public function __toString()
+    {
+        return sprintf('%s', $this->getNombre());
+    }
+
+    /**
+     * @param mixed $investigacion
+     */
+    public function setInvestigacion($investigacion)
+    {
+        $this->investigacion = $investigacion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvestigacion()
+    {
+        return $this->investigacion;
+    }
+
+    /**
+     * @param mixed $trabajoPresentado
+     */
+    public function setTrabajoPresentado($trabajoPresentado)
+    {
+        $this->trabajoPresentado = $trabajoPresentado;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTrabajoPresentado()
+    {
+        return $this->trabajoPresentado;
     }
 }

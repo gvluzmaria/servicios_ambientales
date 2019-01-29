@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Proyecto;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -80,10 +81,12 @@ class ProyectoController extends Controller
         $proyecto == null ? $proyecto = new Proyecto() : '';
 
         $form = $this->createFormBuilder($proyecto)
-            ->add('fechaInicial', TextType::class, array(
+            ->add('fechaInicial', DateType::class, array(
+                'widget' => 'single_text',
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'entidades.proyecto.inicial_date'))
-            ->add('fechaFinal', TextType::class, array(
+            ->add('fechaFinal', DateType::class, array(
+                'widget' => 'single_text',
                 'attr' => array('class' => 'form-control', 'style' => 'margin-bottom:15px'),
                 'label' => 'entidades.proyecto.final_date'))
             ->add('guardar', SubmitType::class, array(
@@ -137,7 +140,7 @@ class ProyectoController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('categoria_docente_index');
+            return $this->redirectToRoute('proyecto_index');
         }
 
         return $this->render('entidades/edit.html.twig', array(

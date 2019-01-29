@@ -317,3 +317,43 @@ entidades:
     author: Autor
     save: Guardar
     plural: Noticias Ambientales
+  evento_externo:
+    title: '[0,1] Evento Externo|[2, Inf] Eventos Externos'
+    label: Evento Externo
+    alt: Evento Externo
+    list: Listado de Eventos Externos
+    create: Adicionar Evento Externo
+    edit: Modificar Evento Externo
+    delete: Eliminar Evento Externo
+    show: Ver Datos de Evento Externo
+    name: Nombre
+    init_date: Fecha Inicial
+    end_date: Fecha Final
+    save: Guardar
+  trabajo_presentado:
+    title: '[0,1] Trabajo Presentado |[2, Inf] Trabajos Presentados'
+    label: Trabajo Presentado
+    alt: Trabajo Presentado
+    list: Listado de Trabajos Presentados
+    create: Adicionar Trabajo Presentado
+    edit: Modificar Trabajo Presentado
+    delete: Eliminar Trabajo Presentado
+    show: Ver Datos de Trabajo Presentado
+    name: Nombre
+    evento_externo: Evento Externo
+    capital_humano: Autor
+    save: Guardar
+  investigacion:
+    title: '[0,1] Investigación |[2, Inf] Investigaciones'
+    label: Investigación
+    alt: Investigación
+    list: Listado de Investigaciones
+    create: Adicionar Investigación
+    edit: Modificar Investigación
+    delete: Eliminar Investigación
+    show: Ver Datos de Investigación
+    name: Nombre
+    resultado: Resultado
+    capital_humano: Autor
+    empresa: Empresa
+    save: Guardar    
